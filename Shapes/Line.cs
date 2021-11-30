@@ -3,15 +3,15 @@ using System;
 
 namespace Paint.Shapes
 {
-    public class Line : Shape
+    internal class Line : Shape
     {
-        private int Length { get; init; }
-
-        public Line(int length, IColorable color)
+        public Line(IColorable _color)
         {
-            color.SetColor();
-            Length = length;
+            Console.ForegroundColor = _color.Color;
+            Length = 10;
         }
+
+        public virtual int Length { get; set; }
 
         public override void Draw()
         {

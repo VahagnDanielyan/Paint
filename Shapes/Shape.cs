@@ -1,7 +1,11 @@
-﻿namespace Paint.Shapes
+﻿using System;
+
+namespace Paint.Shapes
 {
-    public abstract class Shape : IDrawable
+    internal abstract class Shape : IDrawable
     {
+        public ConsoleColor Color { get; protected set; }
+
         public abstract void Draw();
     }
 }

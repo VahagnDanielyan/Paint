@@ -4,15 +4,13 @@ using System.Text;
 
 namespace Paint.Shapes
 {
-    public class Arrow : Shape
+    internal class Arrow : Line
     {
-        private int Length { get; init; }
+        public Arrow(IColorable _color)
+          : base(_color)
+        { }
 
-        public Arrow(int length, IColorable color)
-        {
-            color.SetColor();
-            Length = length;
-        }
+        public sealed override int Length { get; set; }
 
         public override void Draw()
         {
@@ -24,7 +22,7 @@ namespace Paint.Shapes
             sb.Append(' ', Length - 2).Append('*').AppendLine();
             sb.Append(' ', Length - 3).Append('*').AppendLine();
 
-            Console.WriteLine($"\u001b[35m{sb}\u001b[0m");
+            Console.WriteLine(sb);
         }
     }
 }

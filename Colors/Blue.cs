@@ -4,9 +4,6 @@ namespace Paint.Colors
 {
     internal class Blue : IColorable
     {
-        public void SetColor()
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-        }
+        public ConsoleColor Color => ConsoleColor.Blue;
     }
 }

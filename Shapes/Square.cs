@@ -1,36 +1,33 @@
 ﻿using Paint.Colors;
-using System;
-using System.Text;
 
 namespace Paint.Shapes
 {
-    public class Square : Shape
+    internal class Square : Rectangle
     {
-        private int SideLength { get; init; }
+        public Square(IColorable _color)
+          : base(_color)
+        { }
 
-        public Square(int sideLength, IColorable color)
+        private int _sizeX;
+        public sealed override int SizeX
         {
-            color.SetColor();
-            SideLength = sideLength;
+            get => _sizeX;
+            set
+            {
+                _sizeX = value;
+                _sizeY = value;
+            }
         }
 
-        public override void Draw()
+        private int _sizeY;
+        public sealed override int SizeY
         {
-            StringBuilder sb = new();
-
-            for (int i = 0; i < SideLength; i++)
+            get => _sizeY;
+            set
             {
-                if (i == 0 || i == SideLength - 1)
-                {
-                    sb.Append('*', SideLength).AppendLine();
-                }
-                else
-                {
-                    sb.Append('*').Append(' ', SideLength - 2).Append('*').AppendLine();
-                }
+                _sizeX = value;
+                _sizeY = value;
             }
-
-            Console.WriteLine(sb);
         }
     }
 }

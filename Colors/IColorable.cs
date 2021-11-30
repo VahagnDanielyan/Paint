@@ -1,7 +1,9 @@
-﻿namespace Paint.Colors
+﻿using System;
+
+namespace Paint.Colors
 {
-    public interface IColorable
+    internal interface IColorable
     {
-        void SetColor();
+        ConsoleColor Color { get; }
     }
 }

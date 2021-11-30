@@ -4,29 +4,30 @@ using System.Text;
 
 namespace Paint.Shapes
 {
-    public class Rectangle : Shape
+    internal class Rectangle : Shape
     {
-        private int Length { get; init; }
-        private int Height { get; init; }
-        public Rectangle(int length, int height, IColorable color)
+        public Rectangle(IColorable _color)
         {
-            color.SetColor();
-            Length = length;
-            Height = height;
+            Console.ForegroundColor = _color.Color;
+            SizeX = 5;
+            SizeY = 10;
         }
-        public override void Draw()
+
+        public virtual int SizeX { get; set; }
+        public virtual int SizeY { get; set; }
+        public sealed override void Draw()
         {
             StringBuilder sb = new();
 
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < SizeX; i++)
             {
-                if (i == 0 || i == Height - 1)
+                if (i == 0 || i == SizeX - 1)
                 {
-                    sb.Append('*', Length).AppendLine();
+                    sb.Append('*', SizeY).AppendLine();
                 }
                 else
                 {
-                    sb.Append('*').Append(' ', Length - 2).Append('*').AppendLine();
+                    sb.Append('*').Append(' ', SizeY - 2).Append('*').AppendLine();
                 }
             }
 

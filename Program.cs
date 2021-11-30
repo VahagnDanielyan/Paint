@@ -8,12 +8,22 @@ namespace Paint
     {
         private static void Main()
         {
-            new Line(10, new Red()).Draw();
-            new Arrow(10, new Green()).Draw();
-            new Rectangle(10, 6, new Blue()).Draw();
-            new Square(10, new Green()).Draw();
+            Line line = new(new Red()) { Length = 15 };
+            Arrow arrow = new(new Green()) { Length = 18 };
+            Rectangle rectangle = new(new Blue()) { SizeX = 10, SizeY = 12 };
+            Square square = new(new Green()) { SizeX = 15 };
+
+            Paint(line);
+            Paint(arrow);
+            Paint(rectangle);
+            Paint(square);
 
             Console.ReadLine();
+        }
+
+        public static void Paint(IDrawable drawable)
+        {
+            drawable.Draw();
         }
     }
 }
